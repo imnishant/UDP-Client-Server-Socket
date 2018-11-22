@@ -22,16 +22,18 @@ public class Client {
 			}
 			
 			send = msg.getBytes();
-			DatagramPacket sendPacket = new DatagramPacket(send, send.length, IP, 1222);
+			DatagramPacket sendPacket = new DatagramPacket(send, send.length, IP, 1055);
 			clientSocket.send(sendPacket);
 			
 			DatagramPacket receivedPacket = new DatagramPacket(received, received.length);
 			clientSocket.receive(receivedPacket);
-			String str = new String(receivedPacket.getData());
+			received = receivedPacket.getData();
+			String str = new String(received);
 			System.out.println(str);
 			
 		}	
 		clientSocket.close();
 		br.close();		
+		
 	}
 }
