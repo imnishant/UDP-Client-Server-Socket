@@ -5,7 +5,7 @@ public class Server {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		DatagramSocket serverSocket = new DatagramSocket(1055);
+		DatagramSocket serverSocket = new DatagramSocket(1056);
 		byte send[] = new byte[1024];
 		byte received[] = new byte[1024];
 		
@@ -24,9 +24,8 @@ public class Server {
 					System.out.println("Connection Closed");
 					break;
 			}
-			
-			InetAddress IP = receivedPacket.getAddress();
 			send = msg.getBytes();
+			InetAddress IP = receivedPacket.getAddress();
 			DatagramPacket sendPacket = new DatagramPacket(send, send.length, IP, receivedPacket.getPort());
 			serverSocket.send(sendPacket);
 		}
