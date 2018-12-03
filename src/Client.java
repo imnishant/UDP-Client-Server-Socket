@@ -22,7 +22,7 @@ public class Client {
 			}
 			
 			send = msg.getBytes();
-			DatagramPacket sendPacket = new DatagramPacket(send, send.length, IP, 1055);
+			DatagramPacket sendPacket = new DatagramPacket(send, send.length, IP, 1056);
 			clientSocket.send(sendPacket);
 			
 			DatagramPacket receivedPacket = new DatagramPacket(received, received.length);
